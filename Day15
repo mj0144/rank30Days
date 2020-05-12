@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+class Node {
+	int data;
+	Node next;
+	Node(int d) {
+        data = d;
+        next = null;
+    }
+}
+
+class Solution {
+
+    public static  Node insert(Node head,int data) { //head가 노드가 아니고, head자체야.
+                                                    //그니깐 처음 노드를 가리키고 있는 head.
+        Node node = new Node(data); //새로만든 node
+        Node temp = null;
+        if(head ==null){
+            head = node; //head가 null이라는건 리스트에 아무런 노드가 없다는 것.
+
+        }else{
+            temp = head;  //처음노드의 주소. 넣을 자리를 찾기위한 임시 노드일 뿐.
+            while(true){
+                if(temp.next == null){
+                    temp.next= node; // temp.next의 값이 null이면 이게 마지막 노드니깐.
+                                        //temp.next가 새로운 노드주소를 넣어줘서 연결.
+                    break;
+                }else{//temp.next의 값이 null이 아니면 더 이어져 있는 노드가 있다는 거니깐.
+                    temp = temp.next; // temp 다음 노드의 주소를 넘겨줌.
+                }
+            }
+        }
+        return head;
+
+    }
+
+	public static void display(Node head) {
+        Node start = head;
+        while(start != null) {
+            System.out.print(start.data + " ");
+            start = start.next;
+        }
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        Node head = null;
+        int N = sc.nextInt();
+
+        while(N-- > 0) {
+            int ele = sc.nextInt();
+            head = insert(head,ele);
+        }
+        display(head);
+        sc.close();
+    }
+}
