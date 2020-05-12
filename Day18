@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    LinkedList<Character> queue = new LinkedList<>();
+    LinkedList<Character> stack = new LinkedList<>();
+public void pushCharacter(char ch){ //stack에 push
+    stack.add(ch);
+}
+public void enqueueCharacter(char ch){ //queue에 enqueue
+    queue.add(ch);
+}
+ public char popCharacter(){ //stack에서 pop. top값 반환. 나중에 넣은 값 반환.
+    stack.removeLast();
+    return stack.getLast();
+ }
+ public char dequeueCharacter(){ //dequeue. 첫번째값 반환
+    queue.removeFirst();
+    return queue.getFirst();
+  }
+
+
+
+
+
+    public static void main(String[] args) {
