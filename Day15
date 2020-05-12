@@ -20,7 +20,7 @@ class Solution {
             head = node; //head가 null이라는건 리스트에 아무런 노드가 없다는 것.
 
         }else{
-            temp = head;  //처음노드의 주소. 넣을 자리를 찾기위한 임시 노드일 뿐.
+            temp = head;  //처음노드의 주소. 넣을 자리를 찾기위한 임시 노드일 뿐..
             while(true){
                 if(temp.next == null){
                     temp.next= node; // temp.next의 값이 null이면 이게 마지막 노드니깐.
