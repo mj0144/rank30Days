@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+class Node{
+	int data;
+	Node next;
+	Node(int d){
+        data=d;
+        next=null;
+    }
+	
+}
+class Solution
+{
+
+    public static Node removeDuplicates(Node head) {
+      //Write your code here
+        int d = head.data; // 첫번째 노드의 데이터부터.
+        Node temp = head;
+        Node temp2 = head;
+        int count=0;
+        
+        while(temp2.next != null){
+             temp=temp2;
+            while(temp.next != null){
+
+                if(temp.next.data == d){ //같은 값이 2개면 삭제.
+                    temp.next = temp.next.next; // 그 노드 삭제. 
+                }else{
+                    temp = temp.next; //다음노드로 이동
+                }
+            }
+            temp=head; //다시 첫노드의 주소를 갖도록 초기화.
+
+            //temp2 = temp; //새로바뀐 linkedlist가 아닌 그냥 마지막 노드이구나.
+            
+                if(temp2.next!=null){
+                temp2 =temp2.next;
+                d = temp2.data;
+                }
+
+        }
+
+        return head;
+
+    }
+
+    public static  Node insert(Node head,int data)
